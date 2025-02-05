@@ -1,0 +1,47 @@
+
+//vairables to call where we want use for resuability and change as we can whole places by giving variable name
+
+@use "variables";
+@import "variables";
+@import "mixin";
+
+
+.parent{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    .left{
+        width: 20%;
+        height: 100%;
+        background-color: magenta;
+        .heading{
+            font-size: variables.$basesize*3;
+        }
+    }
+    .right{ 
+        width: 80%;
+        height: 100%;
+        background-color: aqua;
+          .one{
+            @include button-structure();
+            background-color: $firstcolor;
+            color: white;
+          }
+          .two{
+            @include button-structure();
+            background-color: $fifthcolor;
+            color: white;
+          }
+          .three{
+            @include button-structure();
+            background-color: rgb(184, 187, 17);
+            color: white;
+          }
+          //extend is use to 
+          .one-round{
+            @extend .two;
+            border-radius: 50%;
+            
+          }
+    }
+}
